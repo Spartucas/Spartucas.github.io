@@ -79,21 +79,18 @@
 
 
 
-<meta name="description" content="全文图片较多，请在WIFI下阅读，土豪请随意！">
+<meta name="description" content="spring的启动过程其实就是其IoC容器的启动过程，对于web程序，IoC容器启动过程即是建立上下文的过程。">
 <meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第一篇文章测试">
-<meta property="og:url" content="http://Spartucas.github.io/2017/12/27/第一篇文章测试/index.html">
+<meta property="og:title" content="Spring根上下文与子上下文解析">
+<meta property="og:url" content="http://Spartucas.github.io/2018/01/23/Spring根上下文与子上下文解析/index.html">
 <meta property="og:site_name" content="风雪独樵">
-<meta property="og:description" content="全文图片较多，请在WIFI下阅读，土豪请随意！">
+<meta property="og:description" content="spring的启动过程其实就是其IoC容器的启动过程，对于web程序，IoC容器启动过程即是建立上下文的过程。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://spartucas.github.io/img/me.jpeg">
-<meta property="og:image" content="http://spartucas.github.io/img/WechatI.jpeg">
-<meta property="og:updated_time" content="2018-01-23T10:04:39.000Z">
+<meta property="og:updated_time" content="2018-01-23T10:12:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第一篇文章测试">
-<meta name="twitter:description" content="全文图片较多，请在WIFI下阅读，土豪请随意！">
-<meta name="twitter:image" content="http://spartucas.github.io/img/me.jpeg">
+<meta name="twitter:title" content="Spring根上下文与子上下文解析">
+<meta name="twitter:description" content="spring的启动过程其实就是其IoC容器的启动过程，对于web程序，IoC容器启动过程即是建立上下文的过程。">
 
 
 
@@ -123,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://Spartucas.github.io/2017/12/27/第一篇文章测试/"/>
+  <link rel="canonical" href="http://Spartucas.github.io/2018/01/23/Spring根上下文与子上下文解析/"/>
 
 
 
 
 
-  <title>第一篇文章测试 | 风雪独樵</title>
+  <title>Spring根上下文与子上下文解析 | 风雪独樵</title>
   
 
 
@@ -256,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Spartucas.github.io/2017/12/27/第一篇文章测试/">
+    <link itemprop="mainEntityOfPage" href="http://Spartucas.github.io/2018/01/23/Spring根上下文与子上下文解析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Spartucas">
@@ -273,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">第一篇文章测试</h1>
+          <h1 class="post-title" itemprop="name headline">Spring根上下文与子上下文解析</h1>
         
 
         <div class="post-meta">
@@ -285,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-27T15:48:07+08:00">
-                2017-12-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-23T17:47:58+08:00">
+                2018-01-23
               </time>
             
 
@@ -308,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
+                  <a href="/categories/Spring/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring</span>
                   </a>
                 </span>
 
@@ -345,11 +342,42 @@
       
 
       
-        <p>全文图片较多，请在WIFI下阅读，土豪请随意！<br><a id="more"></a></p>
-<p><blockquote class="blockquote-center">人的一切痛苦，本质上都是对自己无能的愤怒。</blockquote></p>
-<h1 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h1><h2 id="1、我是一个弱鸡程序员"><a href="#1、我是一个弱鸡程序员" class="headerlink" title="1、我是一个弱鸡程序员"></a>1、我是一个弱鸡程序员</h2><p><img src="/img/me.jpeg" style="height:720px;width:540px;"></p>
-<h2 id="2、我喜欢健身"><a href="#2、我喜欢健身" class="headerlink" title="2、我喜欢健身"></a>2、我喜欢健身</h2><p><img src="/img/WechatI.jpeg" style="height:300px;width:300px;"></p>
-<h2 id="3、我喜欢唱歌"><a href="#3、我喜欢唱歌" class="headerlink" title="3、我喜欢唱歌"></a>3、我喜欢唱歌</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello,World!</span><br></pre></td></tr></table></figure>
+        <p><strong> spring的启动过程其实就是其IoC容器的启动过程，对于web程序，IoC容器启动过程即是建立上下文的过程。 </strong><br><a id="more"></a></p>
+<h1 id="Spring的启动过程："><a href="#Spring的启动过程：" class="headerlink" title="Spring的启动过程："></a>Spring的启动过程：</h1><p>首先，对于一个web应用，其部署在web容器中，web容器提供其一个全局的上下文环境，这个上下文就是ServletContext，其为后面的spring IoC容器提供宿主环境；</p>
+<p>其次，在web.xml中会提供有contextLoaderListener。在web容器启动时，会触发容器初始化事件，此时contextLoaderListener会监听到这个事件，其contextInitialized方法会被调用，在这个方法中，spring会初始化一个启动上下文，这个上下文被称为根上下文，即WebApplicationContext，这是一个接口类，确切的说，其实际的实现类是XmlWebApplicationContext。这个就是spring的IoC容器，其对应的Bean定义的配置由web.xml中的context-param标签指定。在这个IoC容器初始化完毕后，spring以WebApplicationContext.ROOTWEBAPPLICATIONCONTEXTATTRIBUTE为属性Key，将其存储到ServletContext中，便于获取；</p>
+<p>再次，contextLoaderListener监听器初始化完毕后，开始初始化web.xml中配置的Servlet，这个servlet可以配置多个，以最常见的DispatcherServlet为例，这个servlet实际上是一个标准的前端控制器，用以转发、匹配、处理每个servlet请求。DispatcherServlet上下文在初始化的时候会建立自己的IoC上下文，用以持有spring mvc相关的bean。在建立DispatcherServlet自己的IoC上下文时，会利用WebApplicationContext.ROOTWEBAPPLICATIONCONTEXTATTRIBUTE先从ServletContext中获取之前的根上下文(即WebApplicationContext)作为自己上下文的parent上下文。有了这个parent上下文之后，再初始化自己持有的上下文。这个DispatcherServlet初始化自己上下文的工作在其initStrategies方法中可以看到，大概的工作就是初始化处理器映射、视图解析等。这个servlet自己持有的上下文默认实现类也是mlWebApplicationContext。初始化完毕后，spring以与servlet的名字相关(此处不是简单的以servlet名为Key，而是通过一些转换，具体可自行查看源码)的属性为属性Key，也将其存到ServletContext中，以便后续使用。这样每个servlet就持有自己的上下文，即拥有自己独立的bean空间，同时各个servlet共享相同的bean，即根上下文(第2步中初始化的上下文)定义的那些bean。</p>
+<p>摘要: Spring 容器最基本的接口就是BeanFactory。项目开发中会涉及到父子上下文的概念。<br>最近在做项目时牵扯到有关父子上下文的概念。</p>
+<h1 id="何为父子上下文呢？"><a href="#何为父子上下文呢？" class="headerlink" title="何为父子上下文呢？"></a>何为父子上下文呢？</h1><ul>
+<li>父上下文：</li>
+</ul>
+<p>使用listener监听器来加载配置文件，如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;listener&gt;   </span><br><span class="line">  &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;   </span><br><span class="line">&lt;/listener&gt;</span><br></pre></td></tr></table></figure>
+<p>Spring 会创建一个WebApplicationContext上下文，称为父上下文（父容器），保存在 ServletContext中，key是WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE的值。</p>
+<p>可以使用Spring提供的工具类取出上下文对象：<br>WebApplicationContextUtils.getWebApplicationContext(ServletContext);</p>
+<ul>
+<li>子上下文：</li>
+</ul>
+<p>使用Spring MVC 来处理拦截相关的请求时，会配置DispatchServlet：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;dispatcherServlet&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet</span><br><span class="line">    &lt;/servlet-class&gt;</span><br><span class="line">    &lt;init-param&gt;</span><br><span class="line">        &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</span><br><span class="line">        &lt;param-value&gt;/WEB-INF/applicationContext-mvc.xml&lt;/param-value&gt;</span><br><span class="line">    &lt;/init-param&gt;</span><br><span class="line">    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;</span><br><span class="line">&lt;/servlet&gt;</span><br><span class="line"></span><br><span class="line">&lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;dispatcherServlet&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/&lt;/url-pattern&gt;</span><br><span class="line">&lt;/servlet-mapping&gt;</span><br></pre></td></tr></table></figure>
+<p>每个DispatchServlet会有一个自己的上下文，称为子上下文，它也保存在 ServletContext中，key 是”org.springframework.web.servlet.FrameworkServlet.CONTEXT”+Servlet名称。当一 个Request对象产生时，会把这个子上下文对象（WebApplicationContext）保存在Request对象中，key是 DispatcherServlet.class.getName() + “.CONTEXT”。<br>可以使用工具类取出上下文对象：RequestContextUtils.getWebApplicationContext(request);</p>
+<h1 id="父上下文（父容器）和子上下文（子容器）的访问权限："><a href="#父上下文（父容器）和子上下文（子容器）的访问权限：" class="headerlink" title="父上下文（父容器）和子上下文（子容器）的访问权限："></a>父上下文（父容器）和子上下文（子容器）的访问权限：</h1><p>子上下文可以访问父上下文中的bean，但是父上下文不可以访问子上下文中的bean。</p>
+<h1 id="父上下文使用与否"><a href="#父上下文使用与否" class="headerlink" title="父上下文使用与否"></a>父上下文使用与否</h1><ul>
+<li>方案一，传统型：</li>
+</ul>
+<p>父上下文容器中保存数据源、服务层、DAO层、事务的Bean。</p>
+<p>子上下文容器中保存Mvc相关的Action的Bean.</p>
+<p>事务控制在服务层。</p>
+<p>由于父上下文容器不能访问子上下文容器中内容，事务的Bean在父上下文容器中，无法访问子上下文容器中内容，就无法对子上下文容器中Action进行AOP（事务）。</p>
+<p>当然，做为“传统型”方案，也没有必要这要做。</p>
+<ul>
+<li>方案二，激进型：</li>
+</ul>
+<p>Java世界的“面向接口编程”的思想是正确的，但在增删改查为主业务的系统里，Dao层接口，Dao层实现类，Service层接口，Service层实现类，Action父类，Action。再加上众多的O(vo\po\bo)和jsp页面。写一个小功能 7、8个类就写出来了。 开发者说我就是想接点私活儿，和PHP，ASP抢抢饭碗，但我又是Java程序员。最好的结果是大项目能做好，小项目能做快。所以“激进型”方案就出现了—–没有接口、没有Service层、还可以没有众多的O(vo\po\bo)。那没有Service层事务控制在哪一层？只好上升的Action层。</p>
+<p>本文不想说这是不是正确的思想，我想说的是Spring不会限制你这样做。</p>
+<p>由于有了父子上下文，你将无法实现这一目标。解决方案是只使用子上下文容器，不要父上下文容器 。所以数据源、服务层、DAO层、事务的Bean、Action的Bean都放在子上下文容器中。就可以实现了，事务（注解事务）就正常工作了。这样才够激进。</p>
+<h1 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h1><p> 不使用listener监听器来加载spring的配置文件，只使用DispatcherServlet来加载spring的配置，不要父子上下文，只使用一个DispatcherServlet，事情就简单了，什么麻烦事儿也没有了。</p>
+<p>Java–大项目能做好–按传统方式做，规规矩矩的做，好扩展，好维护。<br>Java–小项目能做快–按激进方式做，一周时间就可以出一个版本，先上线接受市场(用户)的反馈，再改进，再反馈，时间就是生命(成本)。 </p>
+<p>转载自：<a href="https://www.jianshu.com/p/b3eab5acc7f4" target="_blank" rel="noopener">https://www.jianshu.com/p/b3eab5acc7f4</a><br>ps：感谢原文作者，此处转载仅供自己学习整理使用。</p>
 
       
     </div>
@@ -380,15 +408,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/12/27/第一篇文章测试/" rel="next" title="第一篇文章测试">
+                <i class="fa fa-chevron-left"></i> 第一篇文章测试
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/23/Spring根上下文与子上下文解析/" rel="prev" title="Spring根上下文与子上下文解析">
-                Spring根上下文与子上下文解析 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -540,7 +568,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#自我介绍"><span class="nav-number">1.</span> <span class="nav-text">自我介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、我是一个弱鸡程序员"><span class="nav-number">1.1.</span> <span class="nav-text">1、我是一个弱鸡程序员</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、我喜欢健身"><span class="nav-number">1.2.</span> <span class="nav-text">2、我喜欢健身</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、我喜欢唱歌"><span class="nav-number">1.3.</span> <span class="nav-text">3、我喜欢唱歌</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring的启动过程："><span class="nav-number">1.</span> <span class="nav-text">Spring的启动过程：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#何为父子上下文呢？"><span class="nav-number">2.</span> <span class="nav-text">何为父子上下文呢？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#父上下文（父容器）和子上下文（子容器）的访问权限："><span class="nav-number">3.</span> <span class="nav-text">父上下文（父容器）和子上下文（子容器）的访问权限：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#父上下文使用与否"><span class="nav-number">4.</span> <span class="nav-text">父上下文使用与否</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结："><span class="nav-number">5.</span> <span class="nav-text">总结：</span></a></li></ol></div>
             
 
           </div>
