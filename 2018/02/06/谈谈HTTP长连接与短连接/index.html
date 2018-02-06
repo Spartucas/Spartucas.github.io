@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="HTTP," />
 
 
 
@@ -81,17 +81,18 @@
 
 
 
-<meta name="description" content="自古求真皆寂寞，惟挑心灯伴夜霭">
-<meta property="og:type" content="website">
-<meta property="og:title" content="标签">
-<meta property="og:url" content="http://Spartucas.github.io/tags/index.html">
+<meta name="description" content="很早以前就听说过http长连接和短连接，一直没有彻底弄清楚过，感觉懵懵懂懂。今天在学习websocket的时候又听到了这个概念，于是决定不能再懵懂下去了。经过一番研究，下面是我的一些理解。">
+<meta name="keywords" content="HTTP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="谈谈HTTP长连接与短连接">
+<meta property="og:url" content="http://Spartucas.github.io/2018/02/06/谈谈HTTP长连接与短连接/index.html">
 <meta property="og:site_name" content="风雪独樵">
-<meta property="og:description" content="自古求真皆寂寞，惟挑心灯伴夜霭">
+<meta property="og:description" content="很早以前就听说过http长连接和短连接，一直没有彻底弄清楚过，感觉懵懵懂懂。今天在学习websocket的时候又听到了这个概念，于是决定不能再懵懂下去了。经过一番研究，下面是我的一些理解。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-23T12:00:35.000Z">
+<meta property="og:updated_time" content="2018-02-06T04:45:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="标签">
-<meta name="twitter:description" content="自古求真皆寂寞，惟挑心灯伴夜霭">
+<meta name="twitter:title" content="谈谈HTTP长连接与短连接">
+<meta name="twitter:description" content="很早以前就听说过http长连接和短连接，一直没有彻底弄清楚过，感觉懵懵懂懂。今天在学习websocket的时候又听到了这个概念，于是决定不能再懵懂下去了。经过一番研究，下面是我的一些理解。">
 
 
 
@@ -121,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://Spartucas.github.io/tags/"/>
+  <link rel="canonical" href="http://Spartucas.github.io/2018/02/06/谈谈HTTP长连接与短连接/"/>
 
 
 
 
 
-  <title>标签 | 风雪独樵</title>
+  <title>谈谈HTTP长连接与短连接 | 风雪独樵</title>
   
 
 
@@ -244,40 +245,170 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Spartucas.github.io/2018/02/06/谈谈HTTP长连接与短连接/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Spartucas">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="风雪独樵">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">标签</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                目前共计 2 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/HTTP/" style="font-size: 12px; color: #ccc">HTTP</a> <a href="/tags/hexo/" style="font-size: 12px; color: #ccc">hexo</a>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">谈谈HTTP长连接与短连接</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-06T12:36:07+08:00">
+                2018-02-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTTP/" itemprop="url" rel="index">
+                    <span itemprop="name">HTTP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>很早以前就听说过http长连接和短连接，一直没有彻底弄清楚过，感觉懵懵懂懂。<br>今天在学习websocket的时候又听到了这个概念，于是决定不能再懵懂下去了。经过一番研究，下面是我的一些理解。<br><a id="more"></a></p>
+<h1 id="一个误区"><a href="#一个误区" class="headerlink" title="一个误区"></a>一个误区</h1><p>我们知道，客户端发起一次HTTP请求，经过服务端响应返回后，本次HTTP请求就结束了，那么HTTP长连接到底说的是什么呢？其实这里的长连接短连接，本质上说的是TCP连接。TCP连接是一个双向的通道，它是可以保持一段时间不关闭的，因此TCP连接才有真正的长连接和短连接这一说。其实知道了以后，会觉得这很好理解。HTTP协议说到底是应用层的协议，而TCP才是真正的传输层协议，只有负责传输的这一层才需要建立连接。<br>另外，HTTP1.0协议是不支持长连接的，从HTTP1.1协议以后，连接默认都是长连接。</p>
+<h1 id="一些疑问"><a href="#一些疑问" class="headerlink" title="一些疑问"></a>一些疑问</h1><p>首先是怎么样就算是把HTTP变成长连接了，是不是只要设置Connection为keep-alive就算是了？<br>如果是的话，那都说HTTP1.1默认是长连接，而观察我们平时开发的Web应用的HTTP头部，Connection也确实是keep-alive，那就是说我们大部分都是用的长连接，但是长连接不是一般用于交互比较频繁的应用吗？如果是普通的web应用，比如打开一个博客浏览文章，我们通常不会很频繁的发送请求，那我们应用这种长连接有什么用？</p>
+<p>当我们明白长连接其实 是指TCP的连接后，这些问题就瞬间明白了。<br>第一个问题是，是不是只要设置Connection为keep-alive就算是长连接了？<br>当然是，但要服务器和客户端都设置。<br>第二个问题是，我们平时用的是不是长连接？<br>这个也毫无疑问，当然是的。（现在用的基本上都是HTTP1.1协议，你观察一下就会发现，基本上Connection都是keep-alive。而且HTTP协议文档上也提到了，HTTP1.1默认是长连接，也就是默认Connection的值就是keep-alive）<br>第三个问题，像一般的web应用（如博客）使用长连接有什么好处？是否需要关掉长连接而使用短连接？<br>肯定的回答，当然有好处。<br>长连接情况下，多个HTTP请求可以复用同一个TCP连接，这就节省了很多TCP连接建立和断开的消耗。比如你请求了博客的一个网页，这个网页里肯定还包含了CSS、JS等等一系列资源，如果你是短连接（也就是每次都要重新建立TCP连接）的话，那你每打开一个网页，基本要建立几个甚至几十个TCP连接，这浪费了多少资源就不用多说了吧。但如果是长连接的话，那么这么多次HTTP请求（这些请求包括请求网页内容，CSS文件，JS文件，图片等等），其实使用的都是一个TCP连接，很显然是可以节省很多消耗的。<br>另外，最后关于长连接还要多提一句，那就是，长连接并不是永久连接的。如果一段时间内（具体的时间长短，是可以在header当中进行设置的，也就是所谓的超时时间 keep-alive timeout），这个连接没有HTTP请求发出的话，那么这个长连接就会被断掉。<br>Httpd守护进程，一般都提供了keep-alive timeout时间设置参数。比如nginx的keepalive_timeout，和Apache的KeepAliveTimeout。<br>这个keepalive_timout时间值意味着：一个http产生的tcp连接在传送完最后一个响应后，还需要hold住 keepalive_timeout秒后，才开始关闭这个连接。当httpd守护进程发送完一个响应后，理应马上主动关闭相应的tcp连接，设置 keepalive_timeout后，httpd守护进程会想说：”再等等吧，看看浏览器还有没有请求过来”，这一等，便是 keepalive_timeout时间。如果守护进程在这个等待的时间里，一直没有收到浏览发过来http请求，则关闭这个TCP连接。</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>好记性不如赖笔头。写下这篇文章是为整理脑中知识的同时也为了避免遗忘。</p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTTP/" rel="tag"># HTTP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/23/Spring根上下文与子上下文解析/" rel="next" title="Spring根上下文与子上下文解析">
+                <i class="fa fa-chevron-left"></i> Spring根上下文与子上下文解析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -286,6 +417,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -306,8 +441,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -394,6 +538,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一个误区"><span class="nav-number">1.</span> <span class="nav-text">一个误区</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一些疑问"><span class="nav-number">2.</span> <span class="nav-text">一些疑问</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结语"><span class="nav-number">3.</span> <span class="nav-text">结语</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

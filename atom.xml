@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://Spartucas.github.io/"/>
-  <updated>2018-01-23T11:29:42.000Z</updated>
+  <updated>2018-02-06T04:45:31.000Z</updated>
   <id>http://Spartucas.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>谈谈HTTP长连接与短连接</title>
+    <link href="http://Spartucas.github.io/2018/02/06/%E8%B0%88%E8%B0%88HTTP%E9%95%BF%E8%BF%9E%E6%8E%A5%E4%B8%8E%E7%9F%AD%E8%BF%9E%E6%8E%A5/"/>
+    <id>http://Spartucas.github.io/2018/02/06/谈谈HTTP长连接与短连接/</id>
+    <published>2018-02-06T04:36:07.000Z</published>
+    <updated>2018-02-06T04:45:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>很早以前就听说过http长连接和短连接，一直没有彻底弄清楚过，感觉懵懵懂懂。<br>今天在学习websocket的时候又听到了这个概念，于是决定不能再懵懂下去了。经过一番研究，下面是我的一些理解。<br><a id="more"></a></p><h1 id="一个误区"><a href="#一个误区" class="headerlink" title="一个误区"></a>一个误区</h1><p>我们知道，客户端发起一次HTTP请求，经过服务端响应返回后，本次HTTP请求就结束了，那么HTTP长连接到底说的是什么呢？其实这里的长连接短连接，本质上说的是TCP连接。TCP连接是一个双向的通道，它是可以保持一段时间不关闭的，因此TCP连接才有真正的长连接和短连接这一说。其实知道了以后，会觉得这很好理解。HTTP协议说到底是应用层的协议，而TCP才是真正的传输层协议，只有负责传输的这一层才需要建立连接。<br>另外，HTTP1.0协议是不支持长连接的，从HTTP1.1协议以后，连接默认都是长连接。</p><h1 id="一些疑问"><a href="#一些疑问" class="headerlink" title="一些疑问"></a>一些疑问</h1><p>首先是怎么样就算是把HTTP变成长连接了，是不是只要设置Connection为keep-alive就算是了？<br>如果是的话，那都说HTTP1.1默认是长连接，而观察我们平时开发的Web应用的HTTP头部，Connection也确实是keep-alive，那就是说我们大部分都是用的长连接，但是长连接不是一般用于交互比较频繁的应用吗？如果是普通的web应用，比如打开一个博客浏览文章，我们通常不会很频繁的发送请求，那我们应用这种长连接有什么用？</p><p>当我们明白长连接其实 是指TCP的连接后，这些问题就瞬间明白了。<br>第一个问题是，是不是只要设置Connection为keep-alive就算是长连接了？<br>当然是，但要服务器和客户端都设置。<br>第二个问题是，我们平时用的是不是长连接？<br>这个也毫无疑问，当然是的。（现在用的基本上都是HTTP1.1协议，你观察一下就会发现，基本上Connection都是keep-alive。而且HTTP协议文档上也提到了，HTTP1.1默认是长连接，也就是默认Connection的值就是keep-alive）<br>第三个问题，像一般的web应用（如博客）使用长连接有什么好处？是否需要关掉长连接而使用短连接？<br>肯定的回答，当然有好处。<br>长连接情况下，多个HTTP请求可以复用同一个TCP连接，这就节省了很多TCP连接建立和断开的消耗。比如你请求了博客的一个网页，这个网页里肯定还包含了CSS、JS等等一系列资源，如果你是短连接（也就是每次都要重新建立TCP连接）的话，那你每打开一个网页，基本要建立几个甚至几十个TCP连接，这浪费了多少资源就不用多说了吧。但如果是长连接的话，那么这么多次HTTP请求（这些请求包括请求网页内容，CSS文件，JS文件，图片等等），其实使用的都是一个TCP连接，很显然是可以节省很多消耗的。<br>另外，最后关于长连接还要多提一句，那就是，长连接并不是永久连接的。如果一段时间内（具体的时间长短，是可以在header当中进行设置的，也就是所谓的超时时间 keep-alive timeout），这个连接没有HTTP请求发出的话，那么这个长连接就会被断掉。<br>Httpd守护进程，一般都提供了keep-alive timeout时间设置参数。比如nginx的keepalive_timeout，和Apache的KeepAliveTimeout。<br>这个keepalive_timout时间值意味着：一个http产生的tcp连接在传送完最后一个响应后，还需要hold住 keepalive_timeout秒后，才开始关闭这个连接。当httpd守护进程发送完一个响应后，理应马上主动关闭相应的tcp连接，设置 keepalive_timeout后，httpd守护进程会想说：”再等等吧，看看浏览器还有没有请求过来”，这一等，便是 keepalive_timeout时间。如果守护进程在这个等待的时间里，一直没有收到浏览发过来http请求，则关闭这个TCP连接。</p><h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>好记性不如赖笔头。写下这篇文章是为整理脑中知识的同时也为了避免遗忘。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;很早以前就听说过http长连接和短连接，一直没有彻底弄清楚过，感觉懵懵懂懂。&lt;br&gt;今天在学习websocket的时候又听到了这个概念，于是决定不能再懵懂下去了。经过一番研究，下面是我的一些理解。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="HTTP" scheme="http://Spartucas.github.io/categories/HTTP/"/>
+    
+    
+      <category term="HTTP" scheme="http://Spartucas.github.io/tags/HTTP/"/>
+    
+  </entry>
   
   <entry>
     <title>Spring根上下文与子上下文解析</title>
@@ -33,28 +55,6 @@
     </summary>
     
       <category term="Spring" scheme="http://Spartucas.github.io/categories/Spring/"/>
-    
-    
-      <category term="hexo" scheme="http://Spartucas.github.io/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>第一篇文章测试</title>
-    <link href="http://Spartucas.github.io/2017/12/27/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E6%B5%8B%E8%AF%95/"/>
-    <id>http://Spartucas.github.io/2017/12/27/第一篇文章测试/</id>
-    <published>2017-12-27T07:48:07.000Z</published>
-    <updated>2018-01-23T11:52:53.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>全文图片较多，请在WIFI下阅读，土豪请随意！<br><a id="more"></a></p><p><blockquote class="blockquote-center">人的一切痛苦，本质上都是对自己无能的愤怒。</blockquote></p><h1 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h1><h2 id="1、我是一个弱鸡程序员"><a href="#1、我是一个弱鸡程序员" class="headerlink" title="1、我是一个弱鸡程序员"></a>1、我是一个弱鸡程序员</h2><p><img src="/img/me.jpeg" style="height:720px;width:540px;"></p><h2 id="2、我喜欢健身"><a href="#2、我喜欢健身" class="headerlink" title="2、我喜欢健身"></a>2、我喜欢健身</h2><p><img src="/img/WechatI.jpeg" style="height:300px;width:300px;"></p><h2 id="3、我喜欢唱歌"><a href="#3、我喜欢唱歌" class="headerlink" title="3、我喜欢唱歌"></a>3、我喜欢唱歌</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello,World!</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;全文图片较多，请在WIFI下阅读，土豪请随意！&lt;br&gt;
-    
-    </summary>
-    
-      <category term="随笔" scheme="http://Spartucas.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
       <category term="hexo" scheme="http://Spartucas.github.io/tags/hexo/"/>
