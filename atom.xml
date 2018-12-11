@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>风雪独樵</title>
   
-  
+  <subtitle>自古求真皆寂寞，惟挑心灯伴夜霭</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://Spartucas.github.io/"/>
